@@ -24,7 +24,16 @@ public class PrimeiraPaginaController {
     }
 
     @PostMapping("/create")
-    public String cadastroCandidate(String nome_do_candidate){
-        return "/candidate/login";
+    public String cadastroCandidate(Model model, Pessoa pessoa){
+        System.out.println("Nome: " + pessoa.nome);
+        System.out.println("Email: " + pessoa.email);
+        System.out.println("Usuario: " + pessoa.usuario);
+
+        model.addAttribute("pessoa", pessoa);
+
+        return "candidate/info";
+    }
+
+    record Pessoa(String usuario, String email, String nome) {
     }
 }
