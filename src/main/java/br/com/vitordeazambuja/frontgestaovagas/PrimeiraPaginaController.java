@@ -1,6 +1,7 @@
 package br.com.vitordeazambuja.frontgestaovagas;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PrimeiraPaginaController {
 
     @GetMapping("/home")
-    public String primeiraPaginaHTML() {
+    public String primeiraPaginaHTML(Model model) {
+
+        model.addAttribute("mensagemDaController","Primeira Mensagem vVinda da Controller");
+
         return "primeiraPagina";
     }
 
